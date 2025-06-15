@@ -42,13 +42,32 @@ impl App {
                 break;
             }
 
+            self.clear_cell(0, 0);
+            self.clear_cell(0, 2);
+
             self.update();
 
-            
         }
     }
 
     fn update(&mut self) {
         self.window.update_with_buffer(&self.buffer, self.win_w, self.win_h).expect("Failed to update window");
+    }
+
+    fn set_cell(&mut self, row: usize, col: usize, &character: [u8; 16]) {
+        let text_color = 0xFF0000;
+    }
+
+    fn clear_cell(&mut self, row: usize, col: usize) {
+        let x = col * self.char_w;
+        let y = row * self.char_h;
+
+        for i in 0..self.char_w {
+            for j in 0..self.char_h {
+                if x + i < self.win_w && y + j < self.win_h {
+                    self.buffer[(y + j) * self.win_w + (x + i)] = 0x00FF00;
+                }
+            }
+        }
     }
 }
