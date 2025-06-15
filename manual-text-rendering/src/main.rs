@@ -37,13 +37,20 @@ impl App {
     }
 
     fn run(&mut self) {
+        let font = Font::new();
+        let character = font.letters.get(&'A');
+        let character_b = font.letters.get(&'B');
         while self.window.is_open() {
             if self.window.is_key_down(Key::Escape) {
                 break;
             }
 
-            self.clear_cell(0, 0);
-            self.clear_cell(0, 2);
+            if let Some(&char_bitmap) = character {
+                self.set_cell(0, 1, char_bitmap);
+            }
+            if let Some(&char_bitmap) = character_b {
+                self.set_cell(0, 2, char_bitmap);
+            }
 
             self.update();
 
@@ -54,8 +61,23 @@ impl App {
         self.window.update_with_buffer(&self.buffer, self.win_w, self.win_h).expect("Failed to update window");
     }
 
-    fn set_cell(&mut self, row: usize, col: usize, &character: [u8; 16]) {
-        let text_color = 0xFF0000;
+    fn set_cell(&mut self, row: usize, col: usize, character: [u8; 16]) {
+        let text_color = 0xFFFFFF;
+
+        let x_start = col * self.char_w;
+        let y_start = row * self.char_h;
+
+        for (y_offset, byte) in character.iter().enumerate() {
+            for bit in 0..8 {
+                if (byte >> (7 - bit)) & 1 == 1 {
+                    let x = x_start + bit;
+                    let y = y_start + y_offset;
+                    if x < self.win_w && y < self.win_h {
+                        self.buffer[y * self.win_w + x] = text_color;
+                    }
+                }
+            }
+        }
     }
 
     fn clear_cell(&mut self, row: usize, col: usize) {
@@ -65,7 +87,7 @@ impl App {
         for i in 0..self.char_w {
             for j in 0..self.char_h {
                 if x + i < self.win_w && y + j < self.win_h {
-                    self.buffer[(y + j) * self.win_w + (x + i)] = 0x00FF00;
+                    self.buffer[(y + j) * self.win_w + (x + i)] = 0x000000;
                 }
             }
         }
