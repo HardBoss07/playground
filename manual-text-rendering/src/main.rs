@@ -40,6 +40,8 @@ impl App {
         let font = Font::new();
         let character = font.letters.get(&'A');
         let character_b = font.letters.get(&'B');
+        let character_c = font.letters.get(&'C');
+        let character_d = font.letters.get(&'D');
         while self.window.is_open() {
             if self.window.is_key_down(Key::Escape) {
                 break;
@@ -50,6 +52,12 @@ impl App {
             }
             if let Some(&char_bitmap) = character_b {
                 self.set_cell(0, 2, char_bitmap);
+            }
+            if let Some(&char_bitmap) = character_c {
+                self.set_cell(0, 3, char_bitmap);
+            }
+            if let Some(&char_bitmap) = character_d {
+                self.set_cell(0, 4, char_bitmap);
             }
 
             self.update();
