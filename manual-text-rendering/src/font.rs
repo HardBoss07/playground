@@ -85,7 +85,7 @@ impl Font {
             0b00000000,
         ]);
 
-                letters.insert('E', [
+        letters.insert('E', [
             0b00000000,
             0b11111110,
             0b10000000,
