@@ -47,11 +47,13 @@ impl App {
     fn run(&mut self) {
         let font = Font::new();
         let all_letters = "AaBbCcDdEeFfGgHh";
+        let test_string = "Cafe Behead Fed";
         while self.window.is_open() {
             if self.window.is_key_down(Key::Escape) {
                 break;
             }
             self.draw_letter_row(&font, 0, all_letters);
+            self.draw_letter_row(&font, 1, test_string);
             self.update();
         }
     }
