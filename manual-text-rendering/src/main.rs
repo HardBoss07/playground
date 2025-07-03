@@ -36,48 +36,23 @@ impl App {
         }
     }
 
+    fn draw_letter_row(&mut self, font: &Font, row: usize, letters: &str) {
+        for (i, ch) in letters.chars().enumerate() {
+            if let Some(&bitmap) = font.letters.get(&ch) {
+                self.set_cell(row, i + 1, bitmap);
+            }
+        }
+    }
+
     fn run(&mut self) {
         let font = Font::new();
-        let character = font.letters.get(&'A');
-        let character_b = font.letters.get(&'B');
-        let character_c = font.letters.get(&'C');
-        let character_d = font.letters.get(&'D');
-        let character_a_small = font.letters.get(&'a');
-        let character_b_small = font.letters.get(&'b');
-        let character_c_small = font.letters.get(&'c');
-        let character_d_small = font.letters.get(&'d');
+        let all_letters = "AaBbCcDdEeFfGgHh";
         while self.window.is_open() {
             if self.window.is_key_down(Key::Escape) {
                 break;
             }
-
-            if let Some(&char_bitmap) = character {
-                self.set_cell(0, 1, char_bitmap);
-            }
-            if let Some(&char_bitmap) = character_b {
-                self.set_cell(0, 2, char_bitmap);
-            }
-            if let Some(&char_bitmap) = character_c {
-                self.set_cell(0, 3, char_bitmap);
-            }
-            if let Some(&char_bitmap) = character_d {
-                self.set_cell(0, 4, char_bitmap);
-            }
-            if let Some(&char_bitmap) = character_a_small {
-                self.set_cell(0, 5, char_bitmap);
-            }
-            if let Some(&char_bitmap) = character_b_small {
-                self.set_cell(0, 6, char_bitmap);
-            }
-            if let Some(&char_bitmap) = character_c_small {
-                self.set_cell(0, 7, char_bitmap);
-            }
-            if let Some(&char_bitmap) = character_d_small {
-                self.set_cell(0, 8, char_bitmap);
-            }
-
+            self.draw_letter_row(&font, 0, all_letters);
             self.update();
-
         }
     }
 
