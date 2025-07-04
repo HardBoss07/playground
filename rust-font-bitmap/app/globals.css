@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Custom classes extracted from Tailwind utility usage */
+
+.grid-painter-container {
+    @apply flex flex-col gap-4 p-4 md:p-8 items-center bg-gray-900 rounded-xl shadow-md w-fit;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.clear-btn {
+    @apply self-center px-4 py-2 bg-red-500 text-white font-bold rounded hover:bg-red-600 transition mb-2;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.grid-painter-grids-row {
+    @apply flex gap-8 select-none justify-center;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.grid-painter-grid {
+    @apply grid gap-0.5;
+}
+
+.grid-painter-cell, .grid-painter-canvas-cell {
+    @apply w-5 h-5 cursor-crosshair rounded-sm border border-gray-700 transition;
+}
+
+.grid-painter-cell-on {
+    @apply bg-white;
+}
+
+.grid-painter-cell-off {
+    @apply bg-gray-800;
+}
+
+.code-preview-title {
+    @apply text-xl font-semibold mb-4 text-center text-white;
+}
+
+.code-preview-container {
+    @apply my-0 border border-gray-700 rounded-lg overflow-hidden bg-gray-800;
+}
+
+.page-main-container {
+    @apply flex flex-col md:flex-row justify-center items-start gap-8 md:gap-16 p-4 md:p-12 min-h-screen bg-gray-950;
+}
+
+.page-left-col {
+    @apply flex flex-col gap-6 items-center w-full md:w-auto;
+}
+
+.page-right-col {
+    @apply flex-1 max-w-lg w-full bg-gray-900 rounded-xl shadow-lg p-6 mt-8 md:mt-0;
+}
+
+.body-antialiased {
+    @apply antialiased;
 }
