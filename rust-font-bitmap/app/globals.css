@@ -53,3 +53,53 @@
 .body-antialiased {
     @apply antialiased;
 }
+
+/* New Component Styles - Blended Look */
+
+.input-field-container {
+    @apply flex flex-col gap-2 mb-4;
+}
+
+.input-field-label {
+    @apply text-sm font-medium text-gray-300;
+}
+
+.input-field {
+    @apply px-3 py-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200;
+}
+
+.character-form-container {
+    /* Keep this similar to grid-painter-container for consistency */
+    @apply flex flex-col gap-6 p-6 bg-gray-900 rounded-xl shadow-md w-fit mx-auto;
+}
+
+.character-form-container h2 {
+    @apply text-2xl font-bold text-white text-center mb-2;
+}
+
+.form-section {
+    /* Reduced background difference, subtle border, less padding */
+    @apply bg-gray-800 p-4 rounded-lg border border-gray-800;
+}
+
+.form-section h3 {
+    /* Removed bottom border, adjusted margin */
+    @apply text-lg font-semibold text-white mb-2;
+}
+
+.submit-button {
+    @apply px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors duration-200 self-center text-lg;
+}
+
+.assigned-character-display {
+    /* Subtle background and border */
+    @apply mt-4 p-3 rounded-lg bg-gray-800 border border-gray-800 text-center;
+}
+
+.assigned-character-label {
+    @apply font-semibold text-gray-300 mr-2;
+}
+
+.assigned-character-value {
+    @apply text-blue-400 text-2xl font-extrabold;
+}
