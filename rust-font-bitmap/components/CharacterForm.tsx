@@ -27,6 +27,10 @@ export default function CharacterForm({onSubmit}: CharacterFormProps) {
         <form onSubmit={handleSubmit} className="character-form-container">
             <h2>Define Your Character Glyph</h2>
 
+            <button type="submit" className="submit-button">
+                Save Character Glyph
+            </button>
+
             <div className="form-section">
                 <InputField
                     label="Enter a single character:"
@@ -40,10 +44,6 @@ export default function CharacterForm({onSubmit}: CharacterFormProps) {
             <div className="form-section">
                 <GridPainter onChange={setBitmap}/>
             </div>
-
-            <button type="submit" className="submit-button">
-                Save Character Glyph
-            </button>
         </form>
     );
 }
