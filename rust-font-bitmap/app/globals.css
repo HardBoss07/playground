@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+/* Custom classes extracted from Tailwind utility usage */
+
+.grid-painter-container {
+    @apply flex flex-col gap-4 p-4 md:p-8 items-center bg-gray-900 rounded-xl shadow-md w-fit;
+}
+
+.clear-btn {
+    @apply self-center px-4 py-2 bg-red-500 text-white font-bold rounded hover:bg-red-600 transition mb-2;
+}
+
+.grid-painter-grids-row {
+    @apply flex gap-8 select-none justify-center;
+}
+
+.grid-painter-grid {
+    @apply grid gap-0.5;
+}
+
+.grid-painter-cell, .grid-painter-canvas-cell {
+    @apply w-5 h-5 cursor-crosshair rounded-sm border border-gray-700 transition;
+}
+
+.grid-painter-cell-on {
+    @apply bg-white;
+}
+
+.grid-painter-cell-off {
+    @apply bg-gray-800;
+}
+
+.code-preview-title {
+    @apply text-xl font-semibold mb-4 text-center text-white;
+}
+
+.code-preview-container {
+    @apply my-0 border border-gray-700 rounded-lg overflow-hidden bg-gray-800;
+}
+
+.page-main-container {
+    @apply flex flex-col md:flex-row justify-center items-start gap-8 md:gap-16 p-4 md:p-12 min-h-screen bg-gray-950;
+}
+
+.page-left-col {
+    @apply flex flex-col gap-6 items-center w-full md:w-auto;
+}
+
+.page-right-col {
+    @apply flex-1 max-w-lg w-full bg-gray-900 rounded-xl shadow-lg p-6 mt-8 md:mt-0;
+}
+
+.body-antialiased {
+    @apply antialiased;
+}
+
+/* New Component Styles - Blended Look */
+
+.input-field-container {
+    @apply flex flex-col gap-2 mb-4;
+}
+
+.input-field-label {
+    @apply text-sm font-medium text-gray-300;
+}
+
+.input-field {
+    @apply px-3 py-2 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200;
+}
+
+.character-form-container {
+    /* Keep this similar to grid-painter-container for consistency */
+    @apply flex flex-col gap-6 p-6 bg-gray-900 rounded-xl shadow-md w-fit mx-auto;
+}
+
+.character-form-container h2 {
+    @apply text-2xl font-bold text-white text-center mb-2;
+}
+
+.form-section {
+    /* Reduced background difference, subtle border, less padding */
+    @apply bg-gray-800 p-4 rounded-lg border border-gray-800;
+}
+
+.form-section h3 {
+    /* Removed bottom border, adjusted margin */
+    @apply text-lg font-semibold text-white mb-2;
+}
+
+.submit-button {
+    @apply px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors duration-200 self-center;
+}
+
+.assigned-character-display {
+    /* Subtle background and border */
+    @apply mt-4 p-3 rounded-lg bg-gray-800 border border-gray-800 text-center;
+}
+
+.assigned-character-label {
+    @apply font-semibold text-gray-300 mr-2;
+}
+
+.assigned-character-value {
+    @apply text-blue-400 text-2xl font-extrabold;
+}

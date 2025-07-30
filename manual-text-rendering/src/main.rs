@@ -36,32 +36,25 @@ impl App {
         }
     }
 
+    fn draw_letter_row(&mut self, font: &Font, row: usize, letters: &str) {
+        for (i, ch) in letters.chars().enumerate() {
+            if let Some(&bitmap) = font.letters.get(&ch) {
+                self.set_cell(row, i + 1, bitmap);
+            }
+        }
+    }
+
     fn run(&mut self) {
         let font = Font::new();
-        let character = font.letters.get(&'A');
-        let character_b = font.letters.get(&'B');
-        let character_c = font.letters.get(&'C');
-        let character_d = font.letters.get(&'D');
+        let all_letters = "AaBbCcDdEeFfGgHh";
+        let test_string = "Cafe Behead Fed";
         while self.window.is_open() {
             if self.window.is_key_down(Key::Escape) {
                 break;
             }
-
-            if let Some(&char_bitmap) = character {
-                self.set_cell(0, 1, char_bitmap);
-            }
-            if let Some(&char_bitmap) = character_b {
-                self.set_cell(0, 2, char_bitmap);
-            }
-            if let Some(&char_bitmap) = character_c {
-                self.set_cell(0, 3, char_bitmap);
-            }
-            if let Some(&char_bitmap) = character_d {
-                self.set_cell(0, 4, char_bitmap);
-            }
-
+            self.draw_letter_row(&font, 0, all_letters);
+            self.draw_letter_row(&font, 1, test_string);
             self.update();
-
         }
     }
 
