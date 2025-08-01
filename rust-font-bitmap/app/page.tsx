@@ -25,15 +25,16 @@ export default function Home() {
     return (
         <div className="page-main-container">
             <div className="page-left-col">
-                <CharacterForm onSubmit={handleCharacterFormSubmit} />
+                <CharacterForm onSubmit={handleCharacterFormSubmit}/>
             </div>
 
             <div className="page-right-col">
-                <CodePreview bitmaps={codePreviewString} />
+                <CodePreview bitmaps={codePreviewString}/>
 
                 {submittedData && submittedData.character && (
                     <div className="mt-4 p-2 border rounded bg-gray-100">
-                        <p className="font-bold">Assigned Character: <span className="text-blue-600 text-xl">{submittedData.character}</span></p>
+                        <p className="font-bold">Assigned Character: <span
+                            className="text-blue-600 text-xl">{submittedData.character}</span></p>
                     </div>
                 )}
             </div>
