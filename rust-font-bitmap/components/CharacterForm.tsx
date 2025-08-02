@@ -5,7 +5,7 @@ import GridPainter from '@/components/GridPainter';
 import InputField from '@/components/InputField';
 
 type CharacterFormProps = {
-    onSubmit: (data: {bitmap: string[]; character: string}) => void;
+    onSubmit: (data: { bitmap: string[]; character: string }) => void;
 };
 
 export default function CharacterForm({onSubmit}: CharacterFormProps) {
